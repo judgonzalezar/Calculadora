@@ -16,32 +16,51 @@ import com.calculadora.proyectoCalculadora.model.ResultBuilder;
 
 import java.math.*;
 
-
+/**
+* <h1>Calculadora</h1>
+* El programa de ProyectoCalculadoraApplicationTests implementa
+* las pruebas del código con el que se está trabajando,
+* ya sea testeando los métodos de suma, resta, multiplicación
+* división y los demás métodos involucrados en la api.
+* @pringBootTest Indica que esta es la clase para hacer Test.
+*
+* @author  Juan David González
+* @version 1.0
+* @since   2021-10-12
+*/
 @SpringBootTest
 class ProyectoCalculadoraApplicationTests {
     
-	//Valores para la suma
+	//Parámetros para la suma
 	String expectedAdd= "10";
 	BigDecimal augend= new BigDecimal(5);
 	BigDecimal addend= new BigDecimal(5);
 	
-	//Valores para la resta
+	//Parámetros para la resta
 	String expectedSubtract= "10";
 	BigDecimal minuent= new BigDecimal(20);
 	BigDecimal subtrahend= new BigDecimal(10);
 
-	//Valores para la multiplicación 
+	//Parámetros para la multiplicación 
 	String expectedMultiply= "200";
 	BigDecimal multiplier= new BigDecimal(20);
 	BigDecimal multiplicand= new BigDecimal(10);
 
-	//Valores para la división
+	//Parámetros para la división
 	String expectedDivide= "2";
 	BigDecimal dividend= new BigDecimal(20);
 	BigDecimal divisor= new BigDecimal(0);
 
 	BasicController apiResult1 = new BasicController();
 
+
+   /**
+   * Este método no recibe ni devuelve parametros, pero
+   * evalua tres metodos utilizados en la solución de la 
+   * api los cuales son:
+   * add, getResult y With Result cuyo resultado es comparado
+   * con un valor esperado seteado al inicio de esta clase.
+   */
 	@Test
 	void addTest() {
 
@@ -62,6 +81,13 @@ class ProyectoCalculadoraApplicationTests {
 
 	}
 
+   /**
+   * Este método no recibe ni devuelve parametros, pero
+   * evalua tres metodos utilizados en la solución de la 
+   * api los cuales son:
+   * subtract, getResult y With Result cuyo resultado es comparado
+   * con un valor esperado seteado al inicio de esta clase.
+   */
 	@Test
 	void subtractTest() {
 
@@ -82,6 +108,13 @@ class ProyectoCalculadoraApplicationTests {
 
 	}
 
+   /**
+   * Este método no recibe ni devuelve parametros, pero
+   * evalua tres metodos utilizados en la solución de la 
+   * api los cuales son:
+   * multiply, getResult y With Result cuyo resultado es comparado
+   * con un valor esperado seteado al inicio de esta clase.
+   */
 	@Test
 	void multiplyTest() {
 
@@ -102,6 +135,17 @@ class ProyectoCalculadoraApplicationTests {
 
 	}
    
+
+   /**
+   * Este método no recibe ni devuelve parametros, pero
+   * evalua tres metodos utilizados en la solución de la 
+   * api los cuales son:
+   * divide, getResultFromError, getResult y With Result 
+   * cuyo resultado es comparad con un valor esperado 
+   * seteado al inicio de esta clase, excepto para el metodo 
+   * getResultFromError el cual se compara con la cadena 
+   * "no division by null"
+   */
 	@Test
 	void divideTest() {
 
@@ -151,7 +195,16 @@ class ProyectoCalculadoraApplicationTests {
 
 
 	//-------------------------------------------------------------------------------------------
-
+    
+   /**
+   * Estos métodos se ejecutan despues de la ejecución 
+   * ya sea despues de todo el test en general o despues
+   * de cada test individual.
+   * @BeforeAll Se ejecuta antes del test en general.
+   * @BeforeEach Se ejecuta antes de cada test individual/
+   * @AfterEach Se ejecuta despues de cada test individual/
+   * @BeforeAll Se ejecuta despues del test en general.
+   */
 	@BeforeEach
 	public void beforeEach(){
 		System.out.println("BeforeEach");
